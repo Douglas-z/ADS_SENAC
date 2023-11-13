@@ -1,0 +1,17 @@
+public class MainExercicio1 {
+
+    public static void main(String[] args) {
+
+        byte percent = 50;
+
+        double sensi = 1.2501114;
+
+        int cartãoponto = 554683;
+
+        char nota = 'O';
+
+        boolean possuicarteira = true;
+
+        float war = 1.1234567891011211111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111f;
+    }
+}
