@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ubsconnect.iml" filepath="$PROJECT_DIR$/.idea/ubsconnect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/projeto_java_ubsconnect.iml" filepath="$PROJECT_DIR$/.idea/projeto_java_ubsconnect.iml" />
     </modules>
   </component>
 </project>

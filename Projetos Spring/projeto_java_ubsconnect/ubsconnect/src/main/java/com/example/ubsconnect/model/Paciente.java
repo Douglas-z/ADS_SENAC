@@ -2,14 +2,27 @@ package com.example.ubsconnect.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Paciente extends Pessoa{
 
+    @OneToMany(mappedBy = "paciente")
+    private List<Agendamentos> agendamentos;
     @Column(name = "cpf", nullable = false)
     private String cpf;
     @Column(name = "alergias", nullable = false)
     private String alergias;
+
+    public void agendarConsulta(Profissional profissional, String dataHora) {
+        Agendamentos agendamento = new Agendamentos();
+        agendamento.setPaciente(this);
+        agendamento.setProfissional(profissional);
+        agendamento.setDataHora(LocalDateTime.parse(dataHora));
+        // Lógica para agendar a consulta
+    }
 
     public String getCpf() {
         return cpf;
