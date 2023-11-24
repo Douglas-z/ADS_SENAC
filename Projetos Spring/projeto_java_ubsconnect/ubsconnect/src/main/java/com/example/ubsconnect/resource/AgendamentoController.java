@@ -1,6 +1,7 @@
 package com.example.ubsconnect.resource;
 
 import com.example.ubsconnect.model.Agendamentos;
+import com.example.ubsconnect.model.Paciente;
 import com.example.ubsconnect.service.AgendamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,22 +18,22 @@ public class AgendamentoController extends AbstractController{
     private AgendamentoService service;
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody Agendamentos entity) {
+    public ResponseEntity create(@RequestBody Agendamentos entity) {
         Agendamentos save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/agendamentos/" + entity.getId())).body("Agendamento realizado com sucesso");
+        return ResponseEntity.created(URI.create("/api/agendamentos/" + entity.getId())).body(save);
     }
     @GetMapping
-    public ResponseEntity<List<Agendamentos>> findAll() {
+    public ResponseEntity findAll() {
         List<Agendamentos> agendamentos = service.buscaTodos();
         return ResponseEntity.ok(agendamentos);
     }
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Agendamentos agendamento = service.buscaPorId(id);
-        return ResponseEntity.ok(agendamento);
+        Agendamentos agendamentos = service.buscaPorId(id);
+        return ResponseEntity.ok(agendamentos);
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> remove(@PathVariable("id") Long id) {
+    public ResponseEntity remove(@PathVariable("id") Long id) {
         service.remover(id);
         return ResponseEntity.noContent().build();
     }

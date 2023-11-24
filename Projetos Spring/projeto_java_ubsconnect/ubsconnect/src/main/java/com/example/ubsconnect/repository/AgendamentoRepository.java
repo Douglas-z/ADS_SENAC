@@ -12,4 +12,6 @@ import java.util.List;
 public interface AgendamentoRepository extends JpaRepository<Agendamentos, Long> {
 
     public List<Agendamentos> findByPacienteAndDataHora(Paciente paciente, LocalDateTime dataHora);
+
+    public List<Agendamentos> findByPaciente(Paciente paciente);
 }
